@@ -22,41 +22,6 @@ Proyecto didáctico para aprender a construir una API CRUD, desplegarla localmen
 - Terraform
 - AWS (ECR, ECS Fargate, ALB, RDS, S3, IAM, VPC)
 
-## Estructura del proyecto
-
-```text
-.
-├── app/
-│   ├── static/
-│   │   ├── index.html
-│   │   ├── app.js
-│   │   └── styles.css
-│   ├── __init__.py
-│   ├── database.py
-│   ├── main.py
-│   ├── models.py
-│   ├── schemas.py
-│   └── ...
-├── terraform/
-│   ├── application.tf
-│   ├── database.tf
-│   ├── iam.tf
-│   ├── network.tf
-│   ├── outputs.tf
-│   ├── security_groups.tf
-│   ├── storage.tf
-│   ├── variables.tf
-│   ├── versions.tf
-│   └── ...
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── requirements.lock
-├── .gitignore
-├── README.md
-└── notes.txt  (eliminado en la versión final del repo)
-```
-
 ## Estado actual
 
 ### Local
@@ -250,7 +215,7 @@ El siguiente flujo recomendado para el despliegue real en AWS es:
 
 ## Conclusión
 
-Este proyecto ya tiene una base sólida para aprender DevOps e infraestructura en la nube:
+Este proyecto ya tiene una base sólida para aprender infraestructura en la nube:
 
 - API funcional localmente
 - PostgreSQL con Docker
