@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#183d32" />
+    <title>Productos | Stockroom</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Stockroom, inicio">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>STOCKROOM</span>
+      </a>
+      <div class="connection" id="connection-status" role="status" aria-live="polite">
+        <span class="connection-dot" aria-hidden="true"></span>
+        <span id="connection-label">Conectando</span>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-heading" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">INVENTARIO <span>/</span> CATÁLOGO</p>
+          <h1 id="page-title">Productos</h1>
+        </div>
+        <div class="inventory-total" aria-live="polite">
+          <span class="total-value" id="product-count">0</span>
+          <span class="total-label">productos</span>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="product-editor" aria-labelledby="form-title">
+          <div class="section-heading">
+            <p class="eyebrow" id="form-kicker">NUEVO REGISTRO</p>
+            <h2 id="form-title">Agregar producto</h2>
+          </div>
+
+          <form id="product-form">
+            <label for="product-name">Nombre</label>
+            <input
+              id="product-name"
+              name="name"
+              type="text"
+              maxlength="120"
+              placeholder="Ej. Teclado mecánico"
+              autocomplete="off"
+              required
+            />
+
+            <div class="form-row">
+              <div>
+                <label for="product-price">Precio</label>
+                <input
+                  id="product-price"
+                  name="price"
+                  type="number"
+                  min="0.01"
+                  max="99999999.99"
+                  step="0.01"
+                  placeholder="0,00"
+                  required
+                />
+              </div>
+              <div>
+                <label for="product-stock">Stock</label>
+                <input
+                  id="product-stock"
+                  name="stock"
+                  type="number"
+                  min="0"
+                  step="1"
+                  placeholder="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="button button-primary" id="save-button" type="submit">
+                <span class="button-plus" aria-hidden="true">+</span>
+                <span>Agregar producto</span>
+              </button>
+              <button class="button button-quiet" id="cancel-edit" type="button" hidden>
+                Cancelar
+              </button>
+            </div>
+            <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="editor-note">
+            <span class="note-rule" aria-hidden="true"></span>
+            <p>Los cambios se guardan en la base de datos.</p>
+          </div>
+        </section>
+
+        <section class="product-list" aria-labelledby="list-title">
+          <div class="list-heading">
+            <div>
+              <p class="eyebrow">REGISTROS</p>
+              <h2 id="list-title">Todos los productos</h2>
+            </div>
+            <label class="search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Buscar productos</span>
+              <input id="product-search" type="search" placeholder="Buscar" />
+              <kbd>/</kbd>
+            </label>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col"><span class="visually-hidden">Acciones</span></th>
+                </tr>
+              </thead>
+              <tbody id="product-rows">
+                <tr>
+                  <td class="table-state" colspan="4">Cargando productos...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="list-footnote" id="list-summary" aria-live="polite"></p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

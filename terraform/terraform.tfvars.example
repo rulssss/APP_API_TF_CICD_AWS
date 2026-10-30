@@ -1,0 +1,13 @@
+project_name = "products-api"
+environment  = "dev"
+aws_region   = "us-east-1"
+availability_zones = ["us-east-1a", "us-east-1b"]
+
+vpc_cidr             = "10.20.0.0/16"
+public_subnet_cidrs  = ["10.20.1.0/24", "10.20.2.0/24"]
+private_subnet_cidrs = ["10.20.11.0/24", "10.20.12.0/24"]
+
+enable_nat_gateway = false
+api_in_private_subnets = false
+ecs_desired_count  = 0
+container_image_tag = "v1"
